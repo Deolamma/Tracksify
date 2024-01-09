@@ -1,5 +1,4 @@
 import Logo from "@/components/logo";
-import Home from "@/app/page";
 import Link from "next/link";
 
 const LoginPage = () => {
@@ -54,10 +53,9 @@ const LoginPage = () => {
               </div>
 
               <div className="">
-                <Link href="/dashboard">
-                  <button className="border   hover:bg-color_hover w-full   font-bold text-text_tertiary py-4 px-5 rounded mt-5 ">
-                    {" "}
-                    Log In{" "}
+                <Link href="/employee">
+                  <button className="border hover:text-white  hover:bg-blue-500 w-full  font-bold text-text_tertiary py-4 px-5 rounded mt-5 ">
+                    Log In
                   </button>
                 </Link>
               </div>
