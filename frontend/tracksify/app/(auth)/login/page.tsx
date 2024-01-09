@@ -1,15 +1,15 @@
-"use client"
+"use client";
 import Logo from "@/components/logo";
 import Home from "@/app/page";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const router = useRouter()
+  const router = useRouter();
 
-  const handleLogin = () => {
-    router.push('/dashboard')
-  }
+  // const handleLogin = () => {
+  //   router.push("/dashboard");
+  // };
 
   return (
     <div>
@@ -62,10 +62,15 @@ const LoginPage = () => {
               </div>
 
               <div className="">
-                  <button onClick={handleLogin} className="border   hover:bg-color_hover w-full   font-bold text-text_tertiary py-4 px-5 rounded mt-5 ">
-                    {" "}
-                    Log In{" "}
-                  </button>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/employer-dashboard");
+                  }}
+                  className="border   hover:bg-color_hover w-full   font-bold text-text_tertiary py-4 px-5 rounded mt-5 "
+                >
+                  Log In
+                </button>
               </div>
             </form>
           </div>
@@ -74,5 +79,4 @@ const LoginPage = () => {
     </div>
   );
 };
-
 export default LoginPage;
