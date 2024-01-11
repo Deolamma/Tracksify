@@ -55,7 +55,7 @@ const Navbar = () => {
             <button className="bg-text_secondary p-2 m-2   text-white rounded-full">
               FO
             </button>
-            <select className="ml-2 outline-none">
+            <select className="ml-2  w-4 outline-none">
               <option value="option1"></option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
