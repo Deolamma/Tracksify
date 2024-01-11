@@ -36,6 +36,7 @@ const page = () => {
                 <h3 className="text-text_tertiary font-bold text-sm p-5"></h3>
 
                 {/* GRID 1 */}
+
                 <p className=" hover:bg-color_hover p-5">Project 1</p>
                 <p className=" hover:bg-color_hover p-5">Dec 1, 2023</p>
                 <p className=" hover:bg-color_hover p-5">Dec 31, 2023</p>

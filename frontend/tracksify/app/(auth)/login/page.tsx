@@ -1,7 +1,16 @@
+"use client";
 import Logo from "@/components/logo";
 import Link from "next/link";
+import Home from "@/app/page";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
+
+  // const handleLogin = () => {
+  //   router.push("/dashboard");
+  // };
+
   return (
     <div>
       <main className="flex">
@@ -53,11 +62,16 @@ const LoginPage = () => {
               </div>
 
               <div className="">
-                <Link href="/employee">
-                  <button className="border hover:text-white  hover:bg-blue-500 w-full  font-bold text-text_tertiary py-4 px-5 rounded mt-5 ">
-                    Log In
-                  </button>
-                </Link>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    router.push("/employee-dashboard");
+                  }}
+                  className="bg-text_secondary text-white hover:text-text_tertiary hover:bg-color_hover w-full font-bold text-text_tertiary py-4 px-5 rounded mt-5"
+                >
+                  {" "}
+                  Log In{" "}
+                </button>
               </div>
             </form>
           </div>
@@ -66,5 +80,4 @@ const LoginPage = () => {
     </div>
   );
 };
-
 export default LoginPage;
