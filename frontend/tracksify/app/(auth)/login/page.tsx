@@ -2,17 +2,16 @@
 import Logo from "@/components/logo";
 import Home from "@/app/page";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
   const router = useRouter()
 
-  const handleLogin = () => {
-    router.push('/dashboard')
-  }
-
-  return (
-    <div>
+  //const handleLogin = () => {
+   // router.push('/dashboard')
+   
+   return (
+     <div>
       <main className="flex">
         <div className="w-1/2">
           <div className="bg-background_foreground h-screen">
@@ -40,29 +39,34 @@ const LoginPage = () => {
                 <label
                   className="block  text-sm font-bold mb-2"
                   htmlFor="email address"
-                ></label>
+                  ></label>
                 <input
                   className="  border rounded py-4 px-5 w-full  leading-tight outline-none "
                   id="email"
                   type="text"
                   placeholder="Email Address"
-                />
+                  />
               </div>
               <div className=" mb-4 ">
                 <label
                   className="block  text-sm font-bold mb-2"
                   htmlFor="password"
-                ></label>
+                  ></label>
                 <input
                   className="  border rounded py-4 px-5 w-full  leading-tight outline-none "
                   id="password"
                   type="password"
                   placeholder="Password"
-                />
+                  />
               </div>
 
               <div className="">
-                  <button onClick={handleLogin} className="border   hover:bg-color_hover w-full   font-bold text-text_tertiary py-4 px-5 rounded mt-5 ">
+                  <button 
+                  onClick={(e) =>{
+                    e.preventDefault();
+                    router.push("/employer-dashboard");
+                  }}
+                  className="border   hover:bg-color_hover w-full   font-bold text-text_tertiary py-4 px-5 rounded mt-5 ">
                     {" "}
                     Log In{" "}
                   </button>
@@ -74,5 +78,6 @@ const LoginPage = () => {
     </div>
   );
 };
+
 
 export default LoginPage;
