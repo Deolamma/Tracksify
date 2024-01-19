@@ -28,7 +28,7 @@ namespace TracksifyAPI
                             FirstName = "John",
                             LastName = "Doe",
                             Email = "john.doe@example.com",
-                            Password = "password",
+                            Password =
                             Role = "Supervisor",
                             UserType = UserType.Admin
                         },

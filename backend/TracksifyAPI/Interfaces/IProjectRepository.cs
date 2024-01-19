@@ -16,10 +16,14 @@ namespace TracksifyAPI.Interfaces
         Task<bool> ProjectExistsASync(Guid projectId);
 
         Task<ICollection<User>> GetProjectAssigneesASync(Guid projectId);
+
+        // PUT Method
         Task<Project?> UpdateProjectASync(Guid projectId, Project project);
 
         // POST Methods
         Task<Project> CreateProjectASync(Project project);
+
+        // DELETE Method
         Task DeleteProjectAsync(Project project);
 
     }
