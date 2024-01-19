@@ -93,16 +93,17 @@ async void SeedData(IHost app)
         var service = scope.ServiceProvider.GetService<Seed>();
         await service!.SeedDataContext();
     }
-}
-
+}          
+ 
 app.UseSwagger();
+app.UseSwaggerUI();
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*if (app.Environment.IsDevelopment())
 {
-    
+    app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+*/
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

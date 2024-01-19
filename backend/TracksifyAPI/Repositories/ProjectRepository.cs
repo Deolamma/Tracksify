@@ -111,23 +111,16 @@ namespace TracksifyAPI.Repositories
             return projectassignees;
         }
 
-        // POST Methods
-
+        // PUT Method
+        
         /**
-        * CreateProjectASync - Asynchronously creates a new project
-        * @project: project to be created
-        * Return: returns a new Project
+        * UpdateProjectASync - Asynchronously updates a project
+        * @projectId: projectid of the project that is to be updated
+        * @project: project to be updated
+        * Return: returns the updated project
         */
-        public async Task<Project> CreateProjectASync(Project project)
-        {
-            await _context.Projects.AddAsync(project);
-            await _context.SaveChangesAsync();
-            return (project);
-        }
-
         public async Task<Project?> UpdateProjectASync(Guid projectId, Project project)
         {
-            // how does the cimpiler know the existing project is of type project
             var existingProject = await _context.Projects
                                                 .FirstOrDefaultAsync(p => p.ProjectId == projectId);
 
@@ -147,6 +140,26 @@ namespace TracksifyAPI.Repositories
             return (existingProject);
         }
 
+        // POST Methods
+
+        /**
+        * CreateProjectASync - Asynchronously creates a new project
+        * @project: project to be created
+        * Return: returns a new Project
+        */
+        public async Task<Project> CreateProjectASync(Project project)
+        {
+            await _context.Projects.AddAsync(project);
+            await _context.SaveChangesAsync();
+            return (project);
+        }
+
+        // DELETE Method
+        /**
+        * CreateProjectASync - Asynchronously deletes a project
+        * @project: project to be deleted
+        * Return: returns a new Project
+        */
         public async Task DeleteProjectAsync(Project project)
         {
             _context.Projects.Remove(project);

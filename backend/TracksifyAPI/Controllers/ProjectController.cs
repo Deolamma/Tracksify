@@ -3,7 +3,6 @@ using TracksifyAPI.Dtos.Project;
 using TracksifyAPI.Helpers;
 using TracksifyAPI.Interfaces;
 using TracksifyAPI.Mappers;
-using TracksifyAPI.Models;
 
 namespace TracksifyAPI.Controllers
 {
