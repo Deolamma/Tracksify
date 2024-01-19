@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 using TracksifyAPI.Data;
 using TracksifyAPI.Dtos.User;
 using TracksifyAPI.Helpers;
@@ -34,7 +33,7 @@ namespace TracksifyAPI.Repositories
         {
             // Fetch Only Employees and active users
             var users =  _context.Users
-                .Where(u => (u.UserType != UserType.Admin) && (u.IsDeleted != true))
+                .Where(u => (u.UserType != UserType.Employer) && (u.IsDeleted != true))
                 .AsQueryable();
 
             //filtering
@@ -132,6 +131,17 @@ namespace TracksifyAPI.Repositories
 
             // returns IsDeleted property i.e true or false
             return isDisabled;
+        }
+
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
+        }
+
+        public async Task DeleteUserAsync(User user)
+        {
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
         }
     }
 }
