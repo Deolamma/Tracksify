@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using TracksifyAPI.Models;
 
 namespace TracksifyAPI.Data
 {
@@ -10,5 +13,10 @@ namespace TracksifyAPI.Data
         }
 
         //Create Database tables here using DbSet
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectUpdate> ProjectUpdates { get; set; }
     }
 }
+
